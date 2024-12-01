@@ -34,17 +34,26 @@ bundle install
 yarn install
 ```
 
-3. Run database migrations
+3. Create .env file
+```bash
+touch .env
+
+# and add these credentials to the .env file
+ADMIN_NAME=admin
+ADMIN_PASSWORD=password
+```
+
+4Run database migrations
 ```bash
 bin/rails db:migrate
 ```
 
-4. Run tests
+5. Run tests
 ```bash
 bin/rails test
 ```
 
-5. Serve the application
+6. Serve the application
 ```bash
 bin/rails server
 ```
