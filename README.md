@@ -24,7 +24,7 @@ npm -v
 ## Installation
 1. Clone the repository
 ```bash
-git clone git@github.com:allandereal/rails-tip-calcilator.git
+git clone git@github.com:allandereal/rails-tip-calculator.git
 cd rails-tip-calculator
 ```
 
