@@ -10,7 +10,6 @@ class CalculationsController < ApplicationController
   end
 
   def create
-
     return redirect_to calculations_path if params[:commit] == "RESET"
 
     @calculation = Calculation.new(calculation_params)

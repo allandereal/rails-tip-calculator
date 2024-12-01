@@ -18,13 +18,13 @@ ruby -v
 rails -v
 sqlite3 -v
 node -v
-yarn -v
+npm -v
 ```
 
 ## Installation
 1. Clone the repository
 ```bash
-git clone https://github.com/allandereal/rails-tip-calculator.git
+git clone git@github.com:allandereal/rails-tip-calcilator.git
 cd rails-tip-calculator
 ```
 
