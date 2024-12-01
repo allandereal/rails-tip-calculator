@@ -10,15 +10,15 @@ Before setting up the project, ensure you have the following installed:
 - Rails `8.0.0` or later
 - Sqlite3 database`
 - Node.js `20+`
-- npm `10.0+`
+- Yarn `1.22+`
 
 Verify with:
 ```bash
 ruby -v
 rails -v
-sqlite3 -v
+sqlite3 --version
 node -v
-npm -v
+yarn -v
 ```
 
 ## Installation
@@ -31,7 +31,7 @@ cd rails-tip-calculator
 2. Install Ruby and JavaScript dependencies:
 ```bash
 bundle install
-npm install
+yarn install
 ```
 
 3. Run database migrations
