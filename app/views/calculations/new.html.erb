@@ -1,0 +1,67 @@
+<% content_for :title, "Tip Splitter" %>
+<div class="text-center w-full text-teal-900 text-lg font-bold tracking-widest">
+  <div>SPLI</div>
+  <div>TTER</div>
+</div>
+<%= form_with model: @calculation, url: calculations_path, local: true, html: { class: "bg-white mx-auto w-full md:w-[600px] lg:w-10/12 xl:w-[900px] rounded-3xl p-6 grid grid-cols-1 lg:grid-cols-2 gap-10" } do |form| %>
+  <div class="flex flex-col gap-8">
+    <div>
+      <%= render "label", form:, field: "bill" %>
+      <div class="relative w-full">
+        <span class="absolute left-2 top-2 text-gray-400 text-2xl">$</span>
+        <%= form_number_input(form, :bill, has_icon: true, options: { placeholder: 0, minLength: 0, step: 0.01 }) %>
+      </div>
+    </div>
+    <div>
+      <%= render "label", form:, field: "tip", text: "Select Tip %" %>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <% [5, 10, 15, 25, 50].each do |percent| %>
+          <%= render "tip", form:, percent: %>
+        <% end %>
+        <div>
+          <%= form.radio_button "tip", 0, class: "hidden", id: "custom-tip-radio"%>
+
+          <!-- Custom Tip Input -->
+          <%= form_number_input(form, :custom_tip, options: {
+            placeholder: "Custom",
+            minLength: 0,
+            value: @calculation.persisted? ? @calculation.tip : nil,
+            onfocus: "document.getElementById('custom-tip-radio').checked = true",
+            onchange: "document.getElementById('custom-tip-radio').value = this.value"
+          }) %>
+        </div>
+      </div>
+    </div>
+    <div>
+      <%= render "label", form:, field: "people", text: "Number of People" %>
+      <div class="relative w-full">
+        <span class="absolute left-2 top-2 text-gray-400 text-2xl">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 15c2.485 0 4.5 2.015 4.5 4.5m-9 0a4.5 4.5 0 0 1 9 0m0-9a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0z"
+                />
+            </svg>
+        </span>
+        <%= form_number_input(form, :people, has_icon: true, options: {
+          placeholder: 0, minLength: 0
+        }) %>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col justify-between gap-20 p-5 sm:p-10 rounded-2xl bg-teal-900">
+    <div class="space-y-8">
+      <%= render "totals", title: "Tip Amount", amount:  @calculation.tip_per_person %>
+      <%= render "totals", title: "Total", amount: @calculation.total_per_person %>
+    </div>
+    <%= form.submit @calculation.persisted? ? "RESET" : "CALCULATE", class: "text-center w-full bg-teal-200 text-teal-900 p-2 cursor-pointer font-bold rounded-md text-lg hover:text-teal-800 hover:bg-teal-300" %>
+  </div>
+<% end %>

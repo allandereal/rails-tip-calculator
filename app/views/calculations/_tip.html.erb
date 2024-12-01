@@ -1,0 +1,16 @@
+<div>
+  <input
+    type="radio"
+    id="tip-<%= percent %>"
+    name="calculation[tip]"
+    value="<%= percent %>"
+    class="peer hidden"
+    <%= form.object.tip == percent ? "checked" : "" %>
+    />
+  <label
+    for="tip-<%= percent %>"
+    class="block text-center py-2 rounded-md bg-teal-900 text-white font-bold cursor-pointer peer-checked:bg-teal-300 peer-checked:text-teal-900"
+  >
+    <%= percent %>%
+  </label>
+</div>

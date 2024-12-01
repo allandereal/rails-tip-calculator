@@ -1,0 +1,6 @@
+<div class="flex items-center justify-between gap-2">
+  <%= form.label field, text ||= nil, class: "block text-gray-500 text-sm font-semibold mb-2" %>
+  <% if form.object.errors[field].any? %>
+    <span class="text-sm text-red-400 font-semibold"><%= form.object.errors[field].first %></span>
+  <% end %>
+</div>
