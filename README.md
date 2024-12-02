@@ -1,6 +1,7 @@
 # Tip Calculator
 
-This a Tip Calculator Built with Ruby on Rails as an implementation of the functionality of the [Frontend Mentor Tip Calculator](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX) with an additional feature: an **Admin Dashboard** to track past calculations.
+This a Tip Calculator Built with Ruby on Rails as an implementation of the functionality of the [Frontend Mentor Tip Calculator](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX) with an additional feature: an **Admin Dashboard** to track past calculations.  
+The application is deployed at [https://rails-tip-calculator.onrender.com](https://rails-tip-calculator.onrender.com/) using [Render](https://render.com)
 
 ## Prerequisites
 
